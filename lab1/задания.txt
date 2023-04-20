@@ -1,0 +1,723 @@
+Переменные и типы данных
+
+touch app.js
+code .
+
+const STARTING_POKER_CHIPS = 100; // points
+const PLAYERS = 3;
+const NO_OF_STARTER_CARDS = 2;
+let gameHasEnded = false;
+
+let playerOneName = "Chloe";
+let playerTwoName = "Jasmine";
+let playerThreeName = "Jen";
+
+console.log(`Welcome to Texas Hold'em. The championship title will be awarded to one of these three players: ${playerOneName}, ${playerTwoName} and ${playerThreeName}. Each player has ${STARTING_POKER_CHIPS} in their pot. We have an exciting game ahead of us. May the best player win!`)
+
+
+let playerOnePoints = STARTING_POKER_CHIPS;
+let playerTwoPoints = STARTING_POKER_CHIPS;
+let playerThreePoints = STARTING_POKER_CHIPS;
+
+playerOnePoints -= 50;
+playerTwoPoints -=25;
+playerThreePoints +=75;
+
+gameHasEnded = ((playerOnePoints + playerTwoPoints) == 0) || // three has won
+               ((playerTwoPoints + playerThreePoints) == 0) ||  // one has won
+               ((playerOnePoints + playerThreePoints) == 0);  // two has won 
+console.log("Game has ended: ", gameHasEnded);
+
+result:
+Welcome to Texas Hold'em. The championship title will be awarded to one of these three players: Chloe, Jasmine, and Jen. Each player has 100 in their pot. We have an exciting game ahead of us. May the best player win!
+Game has ended: false
+
+Инструкции if...else
+//
+let currentMoney = 1000;
+let laptopPrice = 1500;
+
+if (currentMoney >= laptopPrice) {
+    //Condition was true. Code in this block will run.
+    console.log("Getting a new laptop!");
+} else{
+    //Condition was true. Code in this block will run.
+    console.log("Can't afford a new laptop, yet!");
+}
+
+let currentMoney= 800;
+let laptopPrice = 1000;
+let laptopDiscountPrice = laptopPrice - (laptopPrice * .20) //Laptop price at 20 percent off
+
+//
+if (currentMoney >= laptopPrice || currentMoney >= laptopDiscountPrice){
+    //Condition was true. Code in this block will run.
+    console.log("Getting a new laptop!");
+}
+else {
+    //Condition was true. Code in this block will run.
+    console.log("Can't afford a new laptop, yet!");
+}
+
+//
+touch blackjack.js
+code .
+
+let cardOne = 7;
+let cardTwo = 5;
+let sum = cardOne + cardTwo; // 15
+let cardOneBank = 7;
+let cardTwoBank = 5;
+let cardThreeBank = 6;
+let cardFourBank = 4;
+
+let cardThree = 7;
+sum += cardThree;
+if (sum > 21) {
+  console.log('You lost');
+}
+console.log(`You have ${sum} points`);
+
+let bankSum = cardOneBank + cardTwoBank + cardThreeBank + cardFourBank;
+
+if (bankSum > 21 || (sum <= 21 && sum > bankSum)) {
+  console.log('You win');
+  process.exit(1); // exit program
+} else {
+  console.log('Bank wins');
+}
+
+Массивы и циклы js
+
+let iceCreamFlavors = ["Chocolate", "Strawberry", "Vanilla", "Pistachio", "Neapolitan", "Mint Chip"];
+
+for (let i = 0; i < iceCreamFlavors.length; i++) {
+  console.log(iceCreamFlavors[i]);
+} // Ends when all flavors are printed
+
+let numbers = [1, 2, 3, 4, 5];
+numbers.forEach(number => console.log(number)); // 1 2 3 4 5
+
+let iceCreamFlavors = ["Chocolate", "Strawberry", "Vanilla", "Pistachio", "Neapolitan", "Mint Chip"];
+iceCreamFlavors.find(flavor => flavor === "Chocolate") // "Chocolate"
+
+let iceCreamFlavors = [
+  { name: "Chocolate", type: "Chocolate" }, 
+  { name: "Strawberry", type: "fruit"}, 
+  { name: "Vanilla", type: "Vanilla"}, 
+  { name: "Pistachio", type: "Nuts"}, 
+  { name: "Neapolitan", type: "Chocolate"}, 
+  { name: "Mint Chip", type: "Chocolate"}
+];
+
+iceCreamFlavors.filter(flavor => flavor.type === "Chocolate") // [{ name: "Chocolate", type: "Chocolate" }, { name: "Neapolitan", type: "Chocolate"}, { name: "Mint Chip", type: "Chocolate"}]
+
+iceCreamFlavors.some(flavor => flavor.type === "Nuts") // true
+
+iceCreamFlavors.map(flavor => {
+  flavor.price = 1;
+  return flavor;
+}) // every item now has a new property price: 1 
+
+let sales = [{
+ date : '2021-05-01',
+ amount: 2
+},
+{
+ date : '2021-05-01',
+ amount: 1
+}
+// and so on...
+]
+
+sales.reduce((acc, curr) => acc + curr.amount, 0);
+
+
+
+
+
+
+
+
+
+
+
+
+git clone https://github.com/MicrosoftDocs/node-essentials/
+cd node-essentials/node-dependencies/3-exercise-package-json
+npm init -y //создает файл package.json
+
+{
+  "name": "3-exercise-package-json",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+
+//Изменение данных в package.json
+{
+  "name": "tailwind-trader-api",
+  "version": "1.0.0",
+  "description": "HTTP API to manage items from the Tailwind Traders database",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "start": "node ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["api", "database"],
+  "author": "Sam",
+  "license": "ISC"
+}
+
+npm start
+> tailwind-trader-api@1.0.0 start
+> node ./src/index.js
+
+Welcome to this application
+
+
+
+
+//Установка пакетов
+
+
+git clone https://github.com/MicrosoftDocs/node-essentials/
+cd node-essentials/node-dependencies/5-exercise-dependency
+npm install jest --save-dev
+MD __tests__
+
+const { parse } = require("../address-parser");
+
+describe('Address parser', () => {
+  test('should parse correctly', () => {
+    expect(
+      parse(
+         "I want to to order: 3 books to address: 112 street city here is my payment info: cardnumber"
+      )
+      ).toEqual({
+        order: "3 books",
+        address: "112 street city",
+        payment: "cardnumber",
+      });
+  })
+})
+
+npm run test
+
+> 5-exercise-dependency@1.0.0 test
+> jest
+
+ PASS  __tests__/address-parser.js
+  Address parser
+    √ should parse correctly (2 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.615 s
+Ran all test suites.
+
+
+
+//Обновление зависимостей
+git clone https://github.com/MicrosoftDocs/node-essentials/
+cd node-essentials/node-dependencies/7-exercise-dependency-management
+npm install
+
+added 5 packages, and audited 6 packages in 3s
+
+1 critical severity vulnerability
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+npm audit fix --force
+npm WARN using --force Recommended protections disabled.
+npm WARN audit Updating lodash to 4.17.21, which is a SemVer major change.
+
+changed 1 package, and audited 6 packages in 4s
+
+found 0 vulnerabilities
+
+npm outdated
+Package     Current  Wanted   Latest  Location                 Depended by
+lodash      4.17.21   1.3.1  4.17.21  node_modules/lodash      7-exercise-dependency-management
+node-fetch    2.6.9   1.7.3    3.3.0  node_modules/node-fetch  7-exercise-dependency-management
+
+npm update
+
+added 4 packages, removed 3 packages, changed 2 packages, and audited 7 packages in 2s
+
+2 vulnerabilities (1 high, 1 critical)
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+npm install node-fetch@latest lodash@latest
+
+added 5 packages, removed 4 packages, changed 2 packages, and audited 8 packages in 21s
+
+3 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+
+
+
+function fibonacci(n) {
+  let n1 = 0;
+  let n2 = 1;
+  let sum = 0;
+
+  for (let i = 2; i <= n; i++) {
+  sum = n1 + n2;
+  n1 = n2;
+  n2 = sum;
+}
+
+  return n === 0 ? n1 : n2;
+}
+
+const result = fibonacci(5);
+console.log(result);
+
+node fibonacci.js
+
+node inspect fibonacci.js
+
+break in fibonacci.js:2
+  1 function fibonacci(n) {
+> 2   let n1 = 0;
+  3   let n2 = 1;
+  4   let sum = 0;
+debug>
+
+exec n
+
+sb()
+
+
+
+
+
+//Работа с файловой системой
+
+source <(curl -Ls https://aka.ms/install-node-lts)
+
+git clone https://github.com/MicrosoftDocs/node-essentials && cd node-essentials/nodejs-files
+
+code .
+
+//
+const fs = require("fs").promises;
+const path = require("path");
+
+async function calculateSalesTotal(salesFiles) {
+  let salesTotal = 0;
+  // loop over each file path in the salesFiles array
+  for (file of salesFiles) {
+    // read the file and parse the contents as JSON
+    const data = JSON.parse(await fs.readFile(file));
+    // Add the amount in the data.total field to the salesTotal variable
+    salesTotal += data.total;
+  }
+  return salesTotal;
+}
+
+async function findSalesFiles(folderName) {
+  // this array will hold sales files as they are found
+  let salesFiles = [];
+
+  async function findFiles(folderName) {
+    // read all the items in the current folder
+    const items = await fs.readdir(folderName, { withFileTypes: true });
+
+    // iterate over each found item
+    for (item of items) {
+      // if the item is a directory, it will need to be searched
+      if (item.isDirectory()) {
+        // call this method recursively, appending the folder name to make a new path
+        await findFiles(path.join(folderName, item.name));
+      } else {
+        // Make sure the discovered file is a .json file
+        if (path.extname(item.name) === ".json") {
+          // store the file path in the salesFiles array
+          salesFiles.push(path.join(folderName, item.name));
+        }
+      }
+    }
+  }
+
+  await findFiles(folderName);
+
+  return salesFiles;
+}
+
+async function main() {
+  const salesDir = path.join(__dirname, "stores");
+  const salesTotalsDir = path.join(__dirname, "salesTotals");
+
+  // create the salesTotal directory if it doesn't exist
+  try {
+    await fs.mkdir(salesTotalsDir);
+  } catch {
+    console.log(`${salesTotalsDir} already exists.`);
+  }
+
+  // find paths to all the sales files
+  const salesFiles = await findSalesFiles(salesDir);
+
+  // read through each sales file to calculate the sales total
+  const salesTotal = await calculateSalesTotal(salesFiles);
+
+  // write the total to the "totals.json" file
+  await fs.writeFile(
+    path.join(salesTotalsDir, "totals.txt"),
+    `${salesTotal}\r\n`,
+    { flag: "a" }
+  );
+  console.log(`Wrote sales totals to ${salesTotalsDir}`);
+}
+
+main();
+//
+
+node index.js
+
+Wrote sales totals to /home/stud143737/node-essentials/nodejs-files/salesTotals
+
+
+
+////Typescript
+
+function addNumbers(x:number, y:number) {
+  return x + y;
+}
+console.log(addNumbers(3, 6));
+
+//
+
+let x: number;   //* Explicitly declares x as a number type
+let y = 1;       //* Implicitly declares y as a number type
+let z;           //* Declares z without initializing it
+x = 1
+//x = "one"      //Ошибка, тип "string" не может быть назначен типу "number"
+//y = "one"      //Ошибка, тип "string" не может быть назначен типу "number"
+z = 1           //Тип any
+z = "one"       //Тип any
+//
+let flag: boolean;
+let yes = true;
+let no = false;
+//
+let x: number;
+let y = 0;
+let z: number = 123.456;
+let big: bigint = 100n;
+//
+let s: string;
+let empty = "";
+let abc = 'abc';
+
+
+//
+enum ContractStatus {
+     Permanent = 1,
+     Temp,
+     Apprentice
+}
+
+let employeeStatus: ContractStatus = ContractStatus.Temp;
+console.log(employeeStatus);
+console.log(ContractStatus[employeeStatus]);
+
+//
+
+let randomValue: unknown = 10;
+
+randomValue = true;
+randomValue = 'Mateo';
+
+if (typeof randomValue === "string") {
+    console.log((randomValue as string).toUpperCase());    //* Returns MATEO to the console.
+} else {
+    console.log("Error - A string was expected here.");    //* Returns an error message.
+
+//
+let person1: [string, number] = ['Marcia', 35]; //Кортеж
+
+
+//Интерфейсы
+
+type Employee = {
+    firstName: string;
+    lastName: string;
+    fullName(): string;
+}
+
+//
+
+interface IceCream {
+   flavor: string;
+   scoops: number;
+}
+
+//объявление переменной myIceCream типа IceCream
+let myIceCream: IceCream = {
+   flavor: 'vanilla',
+   scoops: 2
+}
+
+console.log(myIceCream.flavor);
+
+//Функция для проверки количества ложек в IceCream
+function tooManyScoops(dessert: IceCream) {
+   if (dessert.scoops >= 4) {
+      return dessert.scoops + ' is too many scoops!';
+   } else {
+      return 'Your order will be ready soon!';
+   }
+}
+
+console.log(tooManyScoops({flavor: 'vanilla', scoops: 5}));
+
+//
+
+const fetchURL = 'https://jsonplaceholder.typicode.com/posts'
+// Interface describing the shape of our json data
+interface Post {
+    userId: number;
+    id: number;
+    title: string;
+    body: string;
+}
+async function fetchPosts(url: string) {
+    let response = await fetch(url);
+    let body = await response.json();
+    return body as Post[];
+}
+async function showPost() {
+    let posts = await fetchPosts(fetchURL);
+    // Display the contents of the first item in the response
+    let post = posts[0];
+    console.log('Post #' + post.id)
+    // If the userId is 1, then display a note that it's an administrator
+    console.log('Author: ' + (post.userId === 1 ? "Administrator" : post.userId.toString()))
+    console.log('Title: ' + post.title)
+    console.log('Body: ' + post.body)
+}
+
+showPost();
+
+//
+//Именованная функция
+
+function addNumbers (x: number, y: number): number {
+   return x + y;
+}
+addNumbers(1, 2);
+
+//
+
+function displayAlert(message : string) {
+    alert('The message is ' + message);
+}
+displayAlert("text");
+
+//
+
+function sum(input: number[]): number {        
+    let total: number =  0;
+    for(let count = 0; count < input.length; count++) {
+        if(isNaN(input[count])){
+            continue;
+        }
+        total += Number(input[count]);
+    }
+    return total;
+}
+
+
+//Функция с обязательными параметрами
+let addThreeNumbers = (x: number, y: number, z: number): number => x + y + z;
+
+//Функция с необязательным параметром
+let addThreeNumbers = (x: number, y: number, z?: number): number => {
+    if((z === undefined)) {
+        return x + y;
+    } else {
+        return x + y + z;
+    }
+};
+
+//Функция с параметром по умолчанию
+let subtractThreeNumbers = (x: number, y: number, z = 100): number => x - y - z;
+
+//Определение типов функции
+type calculator = (x: number, y: number) => number;
+
+let addNumbers: calculator = (x: number, y: number): number => x + y;
+let subtractNumbers: calculator = (x: number, y: number): number => x - y;
+
+console.log(addNumbers(1, 2));
+console.log(subtractNumbers(1, 2));
+
+////
+
+//Создание класса
+
+class Car {
+    // Properties
+    _make: string;
+    _color: string;
+    _doors: number;
+
+    // Constructor
+    constructor(make: string, color: string, doors = 4) {
+    this._make = make;
+    this._color = color;
+    this._doors = doors;
+    }
+
+    // Accessors
+    get make() {
+    return this._make;
+    }
+    set make(make) {
+    this._make = make;
+    }
+
+    get color() {
+    return 'The color of the car is ' + this._color;
+    }
+    set color(color) {
+    this._color = color;
+    }
+
+    get doors() {
+    return this._doors;
+    }
+    set doors(doors) {
+    if ((doors % 2) === 0) {
+        this._doors = doors;
+    } else {
+        throw new Error('Doors must be an even number');
+    }
+    }
+
+    // Methods
+    accelerate(speed: number): string {
+    return `${this.worker()} is accelerating to ${speed} MPH.`
+    }
+    brake(): string {
+    return `${this.worker()} is braking with the standard braking system.`
+    }
+    turn(direction: 'left' | 'right'): string {
+    return `${this.worker()} is turning ${direction}`;
+    }
+    // This function performs work for the other method functions
+    worker(): string {
+        return this._make;
+    }
+}
+
+let myCar1 = new Car('Cool Car Company', 'blue', 2);  // Instantiates the Car object with all parameters
+
+console.log(myCar1.color);
+console.log(myCar1._color);
+
+//Наследование
+
+class ElectricCar extends Car {
+    // Properties
+    private _range: number;
+
+    // Constructor
+    constructor(make: string, color: string, range: number, doors = 2) {
+    super(make, color, doors);
+    this._range = range;
+    }
+
+    // Accessors
+
+    // Methods
+    charge() {
+    console.log(this.worker() + " is charging.")
+    }
+
+}
+
+let spark = new ElectricCar('Spark Motors','silver', 124, 2);
+let eCar = new ElectricCar('Electric Car Co.', 'black', 263);
+console.log(eCar.doors);         // returns the default, 2
+spark.charge();                  // returns "Spark Motors is charging"
+
+////
+//Универсальные шаблоны
+interface Identity<T, U> {
+    value: T;
+    message: U;
+}
+
+let returnNumber: Identity<number, string> = {
+    value: 25,
+    message: 'Hello!'
+}
+let returnString: Identity<string, number> = {
+    value: 'Hello!',
+    message: 25
+}
+
+interface ProcessIdentity<T, U> {
+    (value: T, message: U): T;
+}
+
+function processIdentity<T, U> (value: T, message: U) : T {
+    console.log(message);
+    return value
+}
+
+let processor: ProcessIdentity<number, string> = processIdentity;
+let returnNumber1 = processor(100, 'Hello!');   // OK
+let returnString1 = processor('Hello!', 100);   // Type check error
+
+//
+class Car {
+    make: string = 'Generic Car';
+    doors: number = 4;
+}
+class ElectricCar extends Car {
+    make = 'Electric Car';
+    doors = 4
+}
+class Truck extends Car {
+    make = 'Truck';
+    doors = 2
+}
+function accelerate<T extends Car> (car: T): T {
+    console.log(`All ${car.doors} doors are closed.`);
+    console.log(`The ${car.make} is now accelerating!`)
+    return car
+}
+
+let myElectricCar = new ElectricCar;
+accelerate<ElectricCar>(myElectricCar);
+let myTruck = new Truck;
+accelerate<Truck>(myTruck);
+
+
+
+
